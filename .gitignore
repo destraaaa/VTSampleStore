@@ -1,0 +1,11 @@
+bin/AndroidManifest.xml
+bin/Neo-SMICEP.apk
+bin/classes.dex
+bin/resources.ap_
+bin/Neo-SMICEP.apk
+bin/classes.dex
+bin/resources.ap_
+*.apk
+bin/Neo-SMICEP.apk
+*.ap_
+/bin/

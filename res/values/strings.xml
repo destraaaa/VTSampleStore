@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">VT Dummy Store</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="drawer_open">Slider Menu Opened</string>
+    <string name="drawer_close">Slider Menu Closed</string>
+    <string name="get_started">To get started, log in using Facebook</string>
+    <string name="title_activity_splash_fragment">SplashFragment</string>
+    <string name="title_activity_selection_fragment">SelectionFragment</string>
+    <string name="app_id">1401299843482928</string>
+
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item>Home</item>
+        <item>Billing Information</item>
+        <item>Shipping Information</item>
+    </string-array>
+
+    <!-- Nav Drawer List Item Icons -->
+    <!-- Keep them in order as the titles are in -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_home</item>
+        <item>@drawable/ic_home</item>
+        <item>@drawable/ic_home</item>
+    </array>
+
+    <!-- Content Description -->
+    <string name="berita"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec congue elit vitae mi scelerisque, quis dictum dolor scelerisque. Sed tempor, est et rutrum commodo, lorem augue bibendum sapien, ultrices convallis dui quam quis est. Nullam rutrum ligula condimentum diam fringilla, non interdum risus viverra. Nam eget purus fermentum, ultricies libero vel, accumsan orci. Nam sed enim faucibus, commodo ipsum non, feugiat neque. Mauris eget nisi bibendum, scelerisque elit in, placerat dolor. Nam non volutpat turpis, consectetur iaculis odio. Sed elementum metus non cursus iaculis. Praesent vitae dictum nulla. Duis mollis ullamcorper porta. Etiam condimentum augue nec arcu rhoncus, vel laoreet urna pretium. Maecenas mollis dui id leo malesuada, id sollicitudin est adipiscing. Praesent feugiat ligula ac purus sagittis, quis varius eros scelerisque. Cras cursus id nisl ut ultrices. In mollis nunc egestas augue vehicula suscipit. Quisque tellus mauris, ullamcorper nec sodales feugiat, cursus vel ante. </string>
+    <string name="title_activity_home">VT Dummy Store</string>
+    <string name="desc_list_item_icon">Item Icon</string>
+    <string name="title_activity_drawer">myDrawer</string>
+    <string name="title_activity_test_home">VT Dummy Store</string>
+
+    <string-array name="planets_array">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="country_arrays">
+        <item>Malaysia</item>
+        <item>Amerika Serikat</item>
+        <item>Indonesia</item>
+        <item>Perancis</item>
+        <item>Italia</item>
+        <item>Singapura</item>
+        <item>Selandia Baru</item>
+        <item>India</item>
+    </string-array>
+
+    <string name="title_activity_survei">Survei</string>
+    <string name="checkedtextview">CheckedTextView</string>
+    <string name="radiobutton">RadioButton</string>
+    <string name="checkbox">CheckBox</string>
+    <string name="togglebutton">ToggleButton</string>
+    <string name="pilihan_kedua">Pilihan Kedua</string>
+    <string name="pilihan_pertama">Pilihan Pertama</string>
+    <string name="pilihan_ketiga">Pilihan Ketiga</string>
+    <string name="masukkan_nama_negara">Masukkan nama negara</string>
+    <string name="klik_untuk_mengubah_layar">klik_untuk_mengubah_layar</string>
+    <string name="title_activity_home_fragment">FragmentNearby</string>
+    <string name="title_activity_billing">MainActivity</string>
+    <string name="title_activity_shipping_fragment">ShippingFragment</string>
+    <string name="title_activity_fragment_checkout">FragmentCheckout</string>
+    <string name="title_activity_fragment_vtweb">FragmentVTWeb</string>
+    <string name="title_activity_fragment_vtdirect">FragmentVTDirect</string>
+    <string name="title_activity_fragment_credit_card">FragmentCreditCard</string>
+
+</resources>

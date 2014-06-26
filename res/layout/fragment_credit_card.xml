@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#6C88F8"
+    android:fillViewport="true"
+    android:orientation="vertical" >
+
+    <include layout="@layout/header_shoppingcart" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@+id/list_bought"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin" >
+
+            <TextView
+                android:id="@+id/ccNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/nameCard"
+                android:layout_marginTop="44dp"
+                android:text="CC Number"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/nameCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cc_Number"
+                android:layout_marginTop="15dp"
+                android:text="Name On Card"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/expDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/nameCard"
+                android:layout_below="@+id/name_Card"
+                android:layout_marginTop="15dp"
+                android:text="Expiry Date"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/cvvNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/expDate"
+                android:layout_marginTop="16dp"
+                android:layout_alignRight="@+id/nameCard"
+                android:text="CVV"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/cvv_Number"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/cvvNumber"
+                android:layout_alignLeft="@+id/exp_Month"
+                android:text="123"
+                android:inputType="textPassword"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/exp_Month"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/expDate"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/nameCard"
+                android:inputType="number"
+                android:text="12"
+                android:textSize="12sp" >
+            </EditText>
+            
+            <TextView
+                android:id="@+id/slash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/expDate"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/exp_Month"
+                android:inputType="number"
+                android:text="/"
+                android:textSize="12sp" />
+            
+            <EditText
+                android:id="@+id/exp_Year"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/expDate"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/slash"
+                android:inputType="number"
+                android:text="2020"
+                android:textSize="12sp" >
+            </EditText>
+
+            <EditText
+                android:id="@+id/cc_Number"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/ccNumber"
+                android:layout_alignLeft="@+id/exp_Month"
+                android:text="4111111111111111"
+                android:textSize="12sp" >
+
+                <requestFocus />
+            </EditText>
+
+            <EditText
+                android:id="@+id/name_Card"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/nameCard"
+                android:layout_alignLeft="@+id/exp_Month"
+                android:text="Destra Bintang Perkasa"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="right"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/pay"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:background="#6C88F8"
+                android:text="Pay" >
+            </Button>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

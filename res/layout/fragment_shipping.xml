@@ -1,0 +1,143 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin" >
+
+    <TextView
+        android:id="@+id/shipFirst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="44dp"
+        android:text="First Name"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/shipLast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/shipFirst"
+        android:layout_below="@+id/ship_First"
+        android:layout_marginTop="15dp"
+        android:text="Last Name"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/shipAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/shipLast"
+        android:layout_below="@+id/ship_Last"
+        android:layout_marginTop="15dp"
+        android:text="Address"
+        android:textSize="12sp" />
+    
+    <TextView
+        android:id="@+id/shipCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/shipAddress"
+        android:layout_marginTop="16dp"
+        android:layout_toLeftOf="@+id/ship_Address"
+        android:text="City"
+        android:textSize="12sp" />
+    
+    <EditText
+        android:id="@+id/ship_City"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/shipCity"
+        android:layout_alignLeft="@+id/ship_Address"
+        android:textSize="12sp"
+        android:text="Bandung"/>
+
+    <EditText
+        android:id="@+id/ship_Address"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/shipAddress"
+        android:layout_marginLeft="21dp"
+        android:layout_toRightOf="@+id/shipLast"
+        android:textSize="12sp"
+        android:inputType="textPostalAddress" 
+        android:text="Jl. Tamansari 25/56C">
+    </EditText>
+
+    <EditText
+        android:id="@+id/ship_First"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/shipFirst"
+        android:layout_alignLeft="@+id/ship_Address"
+        android:textSize="12sp" 
+        android:text="Destra">
+        <requestFocus /> 
+     </EditText>
+
+    <EditText
+        android:id="@+id/ship_Last"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/shipLast"
+        android:layout_alignLeft="@+id/ship_Address"
+        android:textSize="12sp" 
+        android:text="Bintang Perkasa"/>
+
+    <EditText
+        android:id="@+id/ship_Post"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/shipPost"
+        android:layout_alignLeft="@+id/ship_City"
+        android:textSize="12sp"
+        android:inputType="number" 
+        android:text="40132"/>
+
+    <TextView
+        android:id="@+id/shipPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/shipPost"
+        android:layout_marginTop="15dp"
+        android:layout_toLeftOf="@+id/ship_Address"
+        android:text="Phone"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/ship_Phone"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/shipPhone"
+        android:layout_alignLeft="@+id/ship_Post"
+        android:layout_alignRight="@+id/ship_Post"
+        android:textSize="12sp"
+        android:inputType="phone" 
+        android:text="085712345678"/>
+
+    <Button
+        android:id="@+id/save_ship"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/ship_Phone"
+        android:layout_below="@+id/ship_Phone"
+        android:layout_marginTop="27dp"
+        android:text="Save" />
+
+    <TextView
+        android:id="@+id/shipPost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/shipPhone"
+        android:layout_below="@+id/shipCity"
+        android:layout_marginTop="20dp"
+        android:text="Postal Code"
+        android:textSize="12sp" />
+
+</RelativeLayout>
