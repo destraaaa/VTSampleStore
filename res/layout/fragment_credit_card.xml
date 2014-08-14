@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#6C88F8"
+    android:background="#FFFFFF"
     android:fillViewport="true"
     android:orientation="vertical" >
 
@@ -10,144 +10,250 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:orientation="vertical" >
 
-        <ListView
-            android:id="@+id/list_bought"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingBottom="@dimen/activity_vertical_margin"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin" >
-
-            <TextView
-                android:id="@+id/ccNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignRight="@+id/nameCard"
-                android:layout_marginTop="44dp"
-                android:text="CC Number"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/nameCard"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/cc_Number"
-                android:layout_marginTop="15dp"
-                android:text="Name On Card"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/expDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignRight="@+id/nameCard"
-                android:layout_below="@+id/name_Card"
-                android:layout_marginTop="15dp"
-                android:text="Expiry Date"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/cvvNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/expDate"
-                android:layout_marginTop="16dp"
-                android:layout_alignRight="@+id/nameCard"
-                android:text="CVV"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/cvv_Number"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/cvvNumber"
-                android:layout_alignLeft="@+id/exp_Month"
-                android:text="123"
-                android:inputType="textPassword"
-                android:textSize="12sp" />
-
-            <EditText
-                android:id="@+id/exp_Month"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/expDate"
-                android:layout_marginLeft="20dp"
-                android:layout_toRightOf="@+id/nameCard"
-                android:inputType="number"
-                android:text="12"
-                android:textSize="12sp" >
-            </EditText>
-            
-            <TextView
-                android:id="@+id/slash"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/expDate"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/exp_Month"
-                android:inputType="number"
-                android:text="/"
-                android:textSize="12sp" />
-            
-            <EditText
-                android:id="@+id/exp_Year"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/expDate"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/slash"
-                android:inputType="number"
-                android:text="2020"
-                android:textSize="12sp" >
-            </EditText>
-
-            <EditText
-                android:id="@+id/cc_Number"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/ccNumber"
-                android:layout_alignLeft="@+id/exp_Month"
-                android:text="4111111111111111"
-                android:textSize="12sp" >
-
-                <requestFocus />
-            </EditText>
-
-            <EditText
-                android:id="@+id/name_Card"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/nameCard"
-                android:layout_alignLeft="@+id/exp_Month"
-                android:text="Destra Bintang Perkasa"
-                android:textSize="12sp" />
-        </RelativeLayout>
-
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_gravity="right"
-            android:orientation="horizontal" >
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="vertical" >
 
-            <Button
-                android:id="@+id/pay"
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:text="Carts"
+                android:textColor="#104f99"
+                android:textSize="20dp" />
+
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="5dp"
-                android:background="#6C88F8"
-                android:text="Pay" >
-            </Button>
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="Product"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Qty"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="right"
+                    android:text="Price"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="right"
+                    android:text="Total"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentTop="true"
+                android:background="#01b4ed" />
+
+            <ListView
+                android:id="@+id/list_bought"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentTop="true"
+                android:background="#01b4ed" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7"
+                    android:gravity="right"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:text="Total:"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/grandTotal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="right"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:textColor="#0caf14"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:text="CC Information"
+                android:textColor="#104f99"
+                android:textSize="20dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin" >
+
+                <TextView
+                    android:id="@+id/ccNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/nameCard"
+                    android:layout_marginTop="15dp"
+                    android:text="CC Number"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/nameCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/cc_Number"
+                    android:layout_marginTop="15dp"
+                    android:text="Name On Card"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/expDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/nameCard"
+                    android:layout_below="@+id/name_Card"
+                    android:layout_marginTop="15dp"
+                    android:text="Expiry Date"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/cvvNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/nameCard"
+                    android:layout_below="@+id/expDate"
+                    android:layout_marginTop="16dp"
+                    android:text="CVV"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/cvv_Number"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/cvvNumber"
+                    android:layout_alignLeft="@+id/exp_Month"
+                    android:inputType="textPassword"
+                    android:text="123"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/exp_Month"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/expDate"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/nameCard"
+                    android:inputType="number"
+                    android:text="12"
+                    android:textSize="12sp" >
+                </EditText>
+
+                <TextView
+                    android:id="@+id/slash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/expDate"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/exp_Month"
+                    android:inputType="number"
+                    android:text="/"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/exp_Year"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/expDate"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/slash"
+                    android:inputType="number"
+                    android:text="2020"
+                    android:textSize="12sp" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/cc_Number"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/ccNumber"
+                    android:layout_alignLeft="@+id/exp_Month"
+                    android:text="4811111111111114"
+                    android:textSize="12sp" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/name_Card"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/nameCard"
+                    android:layout_alignLeft="@+id/exp_Month"
+                    android:text="Destra Bintang Perkasa"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/chkRemember"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/exp_Month"
+                    android:layout_below="@+id/cvv_Number"
+                    android:text="Remember credit card"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/pay"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/style_button"
+                    android:text="Pay"
+                    android:textColor="@drawable/style_button_text" >
+                </Button>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 

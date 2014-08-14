@@ -3,10 +3,12 @@ package com.destra.vtdummy.adapter;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.destra.vtdummy.R;
@@ -19,6 +21,7 @@ public class ShoppingCartAdapter extends BaseAdapter {
     Context context;
     
     private class ViewHolder {
+    	LinearLayout lin;
 		TextView namaView;
 		TextView hargaView;
 		TextView quantityView;
@@ -57,6 +60,7 @@ public class ShoppingCartAdapter extends BaseAdapter {
 		if (convertView == null) {
 		    holder = new ViewHolder();
 		    convertView = inflater.inflate(R.layout.item_list_cart, null);
+		    holder.lin = (LinearLayout) convertView.findViewById(R.id.item_list_cart);
 		    holder.namaView = (TextView) convertView.findViewById(R.id.nama);
 		    holder.hargaView = (TextView) convertView.findViewById(R.id.harga);
 		    holder.quantityView = (TextView) convertView.findViewById(R.id.quantity);
@@ -64,6 +68,12 @@ public class ShoppingCartAdapter extends BaseAdapter {
 		    convertView.setTag(holder);
 		}
 		if(holder!=null){
+			if(position % 2 == 0){
+				holder.lin.setBackgroundColor(Color.parseColor("#edfbff"));
+			}
+			else{
+				holder.lin.setBackgroundColor(Color.parseColor("#ffffff"));
+			}
 			holder.namaView.setText(cart.get(position).getItem().getNama());
 			holder.hargaView.setText(cart.get(position).getItem().getHarga().toString());
 			holder.quantityView.setText(""+cart.get(position).getQuantity());

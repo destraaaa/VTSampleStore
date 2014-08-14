@@ -1,143 +1,316 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin" >
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF"
+    android:fillViewport="true"
+    android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/bilFirst"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
+    <include layout="@layout/header_shoppingcart" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="44dp"
-        android:text="First Name"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:layout_marginRight="10dp"
+        android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/bilLast"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/bilFirst"
-        android:layout_below="@+id/bil_First"
-        android:layout_marginTop="15dp"
-        android:text="Last Name"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/bilAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/bilLast"
-        android:layout_below="@+id/bil_Last"
-        android:layout_marginTop="15dp"
-        android:text="Address"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-    
-    <TextView
-        android:id="@+id/bilCity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bilAddress"
-        android:layout_marginTop="16dp"
-        android:layout_toLeftOf="@+id/bil_Address"
-        android:text="City"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-    
-    <EditText
-        android:id="@+id/bil_City"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/bilCity"
-        android:layout_alignLeft="@+id/bil_Address"
-        android:ems="10"
-        android:text="Bandung"/>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:text="Carts"
+                android:textColor="#104f99"
+                android:textSize="20dp" />
 
-    <EditText
-        android:id="@+id/bil_Address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/bilAddress"
-        android:layout_marginLeft="21dp"
-        android:layout_toRightOf="@+id/bilLast"
-        android:ems="10"
-        android:inputType="textPostalAddress" 
-        android:text="Jl. Tamansari 25/56C">
-    </EditText>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
 
-    <EditText
-        android:id="@+id/bil_First"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/bilFirst"
-        android:layout_alignLeft="@+id/bil_Address"
-        android:ems="10" 
-        android:text="Destra">
-        <requestFocus /> 
-     </EditText>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="Product"
+                    android:textSize="12dp" />
 
-    <EditText
-        android:id="@+id/bil_Last"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/bilLast"
-        android:layout_alignLeft="@+id/bil_Address"
-        android:ems="10" 
-        android:text="Bintang Perkasa"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Qty"
+                    android:textSize="12dp" />
 
-    <TextView
-        android:id="@+id/bilPost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bilCity"
-        android:layout_marginTop="16dp"
-        android:layout_toLeftOf="@+id/bil_City"
-        android:text="Postal Code"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="right"
+                    android:text="Price"
+                    android:textSize="12dp" />
 
-    <EditText
-        android:id="@+id/bil_Post"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/bilPost"
-        android:layout_alignLeft="@+id/bil_City"
-        android:ems="10"
-        android:inputType="number" 
-        android:text="40132"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="right"
+                    android:text="Total"
+                    android:textSize="12dp" />
+            </LinearLayout>
 
-    <TextView
-        android:id="@+id/bilPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bilPost"
-        android:layout_marginTop="15dp"
-        android:layout_toLeftOf="@+id/bil_Address"
-        android:text="Phone"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentTop="true"
+                android:background="#01b4ed" />
 
-    <EditText
-        android:id="@+id/bil_Phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/bilPhone"
-        android:layout_alignLeft="@+id/bil_Post"
-        android:layout_alignRight="@+id/bil_Post"
-        android:ems="10"
-        android:inputType="phone" 
-        android:text="085712345678"/>
+            <ListView
+                android:id="@+id/list_bought"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/save_bil"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/bil_Phone"
-        android:layout_below="@+id/bil_Phone"
-        android:layout_marginTop="27dp"
-        android:text="Save" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentTop="true"
+                android:background="#01b4ed" />
 
-</RelativeLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7"
+                    android:gravity="right"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:text="Total:"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/grandTotal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="right"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:textColor="#0caf14"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:text="Billing Information"
+                android:textColor="#104f99"
+                android:textSize="20dp" />
+
+            <ScrollView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:paddingRight="@dimen/activity_horizontal_margin" >
+
+                        <TextView
+                            android:id="@+id/bilFirst"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="15dp"
+                            android:text="First Name"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/bilLast"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignRight="@+id/bilFirst"
+                            android:layout_below="@+id/bil_First"
+                            android:layout_marginTop="15dp"
+                            android:text="Last Name"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/bilAddress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignRight="@+id/bilLast"
+                            android:layout_below="@+id/bil_Last"
+                            android:layout_marginTop="15dp"
+                            android:text="Address"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/bilCity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/bilAddress"
+                            android:layout_marginTop="16dp"
+                            android:layout_toLeftOf="@+id/bil_Address"
+                            android:text="City"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/bil_City"
+                            android:layout_width="500dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/bilCity"
+                            android:layout_alignLeft="@+id/bil_Address"
+                            android:text="Bandung"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/bil_Address"
+                            android:layout_width="500dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/bilAddress"
+                            android:layout_marginLeft="21dp"
+                            android:layout_toRightOf="@+id/bilLast"
+                            android:inputType="textPostalAddress"
+                            android:text="Jl. Tamansari 25/56C"
+                            android:textSize="12sp" >
+                        </EditText>
+
+                        <EditText
+                            android:id="@+id/bil_First"
+                            android:layout_width="500dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/bilFirst"
+                            android:layout_alignLeft="@+id/bil_Address"
+                            android:text="Destra"
+                            android:textSize="12sp" >
+                        </EditText>
+
+                        <EditText
+                            android:id="@+id/bil_Last"
+                            android:layout_width="500dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/bilLast"
+                            android:layout_alignLeft="@+id/bil_Address"
+                            android:text="Bintang Perkasa"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/bil_Post"
+                            android:layout_width="500dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/bilPost"
+                            android:layout_alignLeft="@+id/bil_City"
+                            android:inputType="number"
+                            android:text="40132"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/bilPhone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/bilPost"
+                            android:layout_marginTop="15dp"
+                            android:layout_toLeftOf="@+id/bil_Address"
+                            android:text="Phone"
+                            android:textSize="12sp" />
+
+                        <EditText
+                            android:id="@+id/bil_Phone"
+                            android:layout_width="500dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/bilPhone"
+                            android:layout_alignLeft="@+id/bil_Post"
+                            android:layout_alignRight="@+id/bil_Post"
+                            android:inputType="phone"
+                            android:text="085712345678"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/bilPost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignRight="@+id/bilPhone"
+                            android:layout_below="@+id/bilCity"
+                            android:layout_marginTop="20dp"
+                            android:text="Postal Code"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal" >
+
+                        <Button
+                            android:id="@+id/fill"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:textSize="16dp"
+                            android:textColor="#ffffff"
+                            android:background="@drawable/button_green"
+                            android:text="Fill Credit Card" >
+                        </Button>
+
+                        <Button
+                            android:id="@+id/one"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:textSize="16dp"
+                            android:textColor="#ffffff"
+                            android:background="@drawable/button_bg"
+                            android:text="One Click" >
+                        </Button>
+
+                        <Button
+                            android:id="@+id/two"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:textSize="16dp"
+                            android:textColor="#ffffff"
+                            android:background="@drawable/button_bg"
+                            android:text="Two Clicks" >
+                        </Button>
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

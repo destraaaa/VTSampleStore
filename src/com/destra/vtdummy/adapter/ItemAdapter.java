@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.opengl.Visibility;
 import android.os.AsyncTask;
@@ -20,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.destra.vtdummy.ActivityHome;
@@ -37,6 +39,7 @@ public class ItemAdapter extends BaseAdapter {
 
     private class ViewHolder {
 		ImageView gambarView;
+		LinearLayout list_item;
 		TextView namaView;
 		TextView hargaView;
 		Button btnList;
@@ -78,6 +81,7 @@ public class ItemAdapter extends BaseAdapter {
 		if (convertView == null) {
 		    holder = new ViewHolder();
 		    convertView = inflater.inflate(R.layout.item_list_shop, null);
+		    holder.list_item = (LinearLayout) convertView.findViewById(R.id.list_item);
 		    holder.gambarView = (ImageView) convertView.findViewById(R.id.gambar);
 		    holder.namaView = (TextView) convertView.findViewById(R.id.nama);
 		    holder.hargaView = (TextView) convertView.findViewById(R.id.harga);
@@ -85,6 +89,12 @@ public class ItemAdapter extends BaseAdapter {
 		    convertView.setTag(holder);
 		}
 		if(holder!=null){
+			if(position % 2 == 0){
+				holder.list_item.setBackgroundColor(Color.parseColor("#edfbff"));
+			}
+			else{
+				holder.list_item.setBackgroundColor(Color.parseColor("#ffffff"));
+			}
 			holder.gambarView.setImageResource(shoppingItems.get(position).getGambar());
 			holder.namaView.setText(shoppingItems.get(position).getNama());
 			holder.hargaView.setText(shoppingItems.get(position).getHarga().toString());
@@ -109,7 +119,7 @@ public class ItemAdapter extends BaseAdapter {
         	//Toast.makeText(context, nearbyItems.get(position).getNama(), Toast.LENGTH_SHORT).show();
         	//RetrieveRedirectURL p = new RetrieveRedirectURL(context);
         	if(grossAmount == 0){
-        		FragmentHome.checkout.setVisibility(View.VISIBLE);;
+        		FragmentHome.checkout.setVisibility(View.VISIBLE);
         	}
         	ActivityHome.getCart().get(position).setQuantity(ActivityHome.getCart().get(position).getQuantity()+1);
         	grossAmount += shoppingItems.get(position).getHarga();
@@ -122,65 +132,4 @@ public class ItemAdapter extends BaseAdapter {
         }
 
      }
-    
-    class RetrieveRedirectURL extends AsyncTask<String, Void, Void> {
-		private String Content;
-		Context context;
-		public RetrieveRedirectURL(Context context) {
-	        this.context = context;
-	    } 
-	    protected Void doInBackground(String... urls) {
-	    	HttpURLConnection connection;
-	        OutputStreamWriter request = null;
-
-	             URL url = null;   
-	             String response = null;         
-	             String parameters = "id1=1&name1="+urls[1]+"&price1="+urls[2]+"&quantity1="+urls[3];
-
-	             try
-	             {
-	                 url = new URL(urls[0]);
-	                 connection = (HttpURLConnection) url.openConnection();
-	                 connection.setDoOutput(true);
-	                 connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-	                 connection.setRequestMethod("POST");    
-
-	                 request = new OutputStreamWriter(connection.getOutputStream());
-	                 request.write(parameters);
-	                 request.flush();
-	                 request.close();            
-	                 String line = "";               
-	                 InputStreamReader isr = new InputStreamReader(connection.getInputStream());
-	                 BufferedReader reader = new BufferedReader(isr);
-	                 StringBuilder sb = new StringBuilder();
-	                 while ((line = reader.readLine()) != null)
-	                 {
-	                     sb.append(line + "");
-	                 }
-	                 // Response from server after login process will be stored in response variable.                
-	                 Content = sb.toString();
-	                 // You can perform UI operations here
-	                 isr.close();
-	                 reader.close();
-
-	             }
-	             catch(IOException e)
-	             {
-	                 // Error
-	             }
-	        return null;
-	    }
-
-	    protected void onPostExecute(Void feed) {
-	    	//Toast.makeText(context ,"Message from Server: \n"+ Content, 0).show();
-	    	Intent i = new Intent(Intent.ACTION_VIEW, Uri
-					.parse(Content));
-	    	i.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-	    	this.context.startActivity(i);
-	        // TODO: check this.exception 
-	        // TODO: do something with the feed
-	    }
-	}
-
-
 }

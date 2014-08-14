@@ -1,0 +1,343 @@
+Step by Step Android Implementation for VT Direct and VT Web
+
+^*11GUID*	Guide for using this document
+--------------------------------------------
+This document consists of several sections and each section consists of several sub-sections. It covers almost everything you need to know to create your own android app store. It includes the tools you need and how to use it, sample code, and explanation about the sample code itself. This document also includes several alternative solutions for your application and troubleshooting nee	ds. So if you feel like you do not need the part that will be mentioned in this document, feel free to jump to part you need by using Ctrl + F and find the unique tag of the section or sub-section that will be provided later in this document. Otherwise, you are very welcome to read the whole document. You can also download the full source code in <link> github </link>.
+
+^*12TOOL*	Tools you need
+--------------------------------------------
+Eclipse is the most popular choice for developing Android apps. You can download eclipse frome <link> here </link> and extract the compressed file. Open eclipse.exe from the newly extracted folder to start developing.
+You will also need either an android device or an emulator to run your app. If you choose to use an emulator, it is better to use Genymotion as it is faster than the emulator in eclipse itself. Download Genymotion from <link> here </link>, run the setup, and follow the instructions in the setup until it is installed. After that, start Genymotion and you will be prompted to download a new virtual device as you have not yet had a device. Download one that suits you and start the emulator by clicking the play button. If you choose to use real device, simply connect your device to your computer using USB cable and do not forget to turn on debug mode (it varies depending on the type of device you are using).
+
+^*20TSTO*	The Store
+--------------------------------------------
+The section provides the complete implementation of the store itself (from the checkout page to the order confirmation page). If you currently have your own store and only need to know how to charge transaction using Veritrans products, you can jump to Charging section by using Ctrl + F command and search for *30CHAR* with caret (^).
+<TODODES>
+Now, make that "Pay" button working by adding an OnClickListener on it. Create a class that implements OnClickListener inside your Activity and name it PayButtonListener. Create its constructor and override the onClick method. Leave them empty for now. This Listener will do the charging thing for you.
+-------------------------------------------------------------------------------------------
+private class PayButtonListener implements OnClickListener {
+	public PayButtonListener() {
+	}
+	@Override
+	public void onClick(View v) {
+	}
+}
+-------------------------------------------------------------------------------------------
+
+^*30CHAR*	Charging Transaction
+--------------------------------------------
+This section provides only ways to charge transaction. If you want complete tutorial of creating your android app store, jump to *20TSTO*. Otherwise, choose your method and jump to its coresponding tag in its right. Do not forget the caret (^).
+Whatever method you are using to charge transaction, you will need a page to submit the details of your payment type. We will simply call this page "Payment Page". A payment page varies depending on what method you are using. We will cover it one by one in the next section.
+
+^*31PAGE*	Payment Page
+--------------------------------------------
+This section will cover payment page for:
+1. Credit Card									*311CRE*
+2. Mandiri Clickpay								*312MAN*
+3. Telkomsel Cash								*313TEL*
+4. Others										*314OTH*
+The 4th option, "Others", include the following methods since they are typically the same.
+1. VT-Web
+2. CIMB Clicks
+3. XL Tunai
+4. Permata
+5. BII
+So, if you do not want to implement all of them, jump to the tag respectively.
+
+^*311CRE*	Payment Page: Credit Card
+--------------------------------------------
+For credit card transaction, at least you will need 4 EditText-s for:
+1. Card number
+2. Expiry month
+3. Expiry year
+4. CVV
+If you want to add another one for Name On Card or want to change EditText-s for expiry month and year into Spinner-s, feel free to modify it. You will also need TextView-s for its labels.
+Also, Credit card transaction is special. You will also need a page for Billing Information if you want to use credit card. Simply copy and paste Shipping Information and replace all the "shipping" with "billing" Ctrl + H. Also, you will also want to have a "Pay" button for executing your transaction process.
+Overall, you will have an xml and its java class like this.
+-------------------------------------------------------------------------------------------
+fragment_credit_card.xml
+-------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#3399FF"
+    android:fillViewport="true"
+    android:orientation="vertical" >
+
+    <include layout="@layout/header_shoppingcart" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@+id/list_bought"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="#3399FF"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/cc_info"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="CreditCardInformation" >
+            </TextView>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin" >
+
+            <TextView
+                android:id="@+id/ccNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/nameCard"
+                android:layout_marginTop="15dp"
+                android:text="CC Number"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/nameCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cc_Number"
+                android:layout_marginTop="15dp"
+                android:text="Name On Card"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/expDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/nameCard"
+                android:layout_below="@+id/name_Card"
+                android:layout_marginTop="15dp"
+                android:text="Expiry Date"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/cvvNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/nameCard"
+                android:layout_below="@+id/expDate"
+                android:layout_marginTop="16dp"
+                android:text="CVV"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/cvv_Number"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/cvvNumber"
+                android:layout_alignLeft="@+id/exp_Month"
+                android:inputType="textPassword"
+                android:text="123"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/exp_Month"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/expDate"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/nameCard"
+                android:inputType="number"
+                android:text="12"
+                android:textSize="12sp" >
+            </EditText>
+
+            <TextView
+                android:id="@+id/slash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/expDate"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/exp_Month"
+                android:inputType="number"
+                android:text="/"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/exp_Year"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/expDate"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/slash"
+                android:inputType="number"
+                android:text="2020"
+                android:textSize="12sp" >
+            </EditText>
+
+            <EditText
+                android:id="@+id/cc_Number"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/ccNumber"
+                android:layout_alignLeft="@+id/exp_Month"
+                android:text="4811111111111114"
+                android:textSize="12sp" >
+            </EditText>
+
+            <EditText
+                android:id="@+id/name_Card"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/nameCard"
+                android:layout_alignLeft="@+id/exp_Month"
+                android:text="Destra Bintang Perkasa"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="right"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/pay"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/style_button"
+                android:text="Pay" >
+            </Button>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+-------------------------------------------------------------------------------------------
+FragmentCreditCard.java
+-------------------------------------------------------------------------------------------
+package your.package.here;
+
+import android.app.Fragment;
+import android.os.Bundle;
+import android.text.format.Time;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import your.package.here.adapter.ShoppingCartAdapter;
+import your.package.here.model.VeritransObject;
+
+public class FragmentCreditCard extends Fragment{
+	static ListView l;
+	public static Button pay;
+	public static TextView gross;
+	EditText cc_Number, name_Card, exp_Month, exp_Year, cvv_Number;
+	String ccNumber, nameCard, expMonth, expYear, cvvNumber;
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		View v = inflater.inflate(R.layout.fragment_credit_card, container,
+				false);
+		l = (ListView) v.findViewById(R.id.list_bought);
+		pay = (Button) v.findViewById(R.id.pay);
+		gross = (TextView) v.findViewById(R.id.gross_amount);
+		cc_Number = (EditText) v.findViewById(R.id.cc_Number);
+		name_Card = (EditText) v.findViewById(R.id.name_Card);
+		exp_Month = (EditText) v.findViewById(R.id.exp_Month);
+		exp_Year = (EditText) v.findViewById(R.id.exp_Year);
+		cvv_Number = (EditText) v.findViewById(R.id.cvv_Number);
+		gross.setText("" + FragmentHome.gross.getText());
+		getActivity().getActionBar().setTitle("CC Information");
+		// calling onPrepareOptionsMenu() to hide action bar icons
+		getActivity().invalidateOptionsMenu();
+		ShoppingCartAdapter adapter = new ShoppingCartAdapter(getActivity(),
+				((ActivityHome) getActivity()).getCart());
+		l.setAdapter(adapter);
+		pay.setOnClickListener(new PayButtonListener());
+		return v;
+	}
+}
+-------------------------------------------------------------------------------------------
+
+^*312MAN*	Payment Page: Mandiri Clickpay
+--------------------------------------------
+Mandiri Clickpay transaction uses two devices if customer want to make a transaction: a token device and an android device. The customer must first provide debit card number, then customer must input something to his/her token device to get a number called challenge token that must be send back via the android device. Talk about a long trip.
+So, for that we will need an EditText for card number input and a TextView for its label.
+
+You have 3 ways of doing transaction charging:
+1. The easiest way (access Veritrans Payment API directly from your Android using VeritransObject class)	*32EASY*
+2. The almost easy way (access Veritrans Payment API from your web service)									*33ALMO*
+3. Your way (create your own VeritransObject-like class, do what you want with it)							*34YOUR*
+
+^*32EASY*	The Easiest Way
+--------------------------------------------
+This section provides tutorial of charging using VeritransObject.
+First, download the VeritransObject library itself <link> here </link> or the source <link> here </link>. If you chose the library, copy the .jar file to libs folder and include it in buildpath. If you chose the source, simply copy it to your src folder. Note that right now VeritransObject only available for sandbox environment. You have to modify the source if you want to use it in production environment.
+To use this class to charge transaction, you have to:
+1. Create a VeritransObject object
+2. Setup your payment
+3. Set up billing and shipping information (if you are using credit card)
+4. Set up customer details
+5. Call pay method
+So basically for a credit card transaction, you will make something like this.
+-------------------------------------------------------------------------------------------
+VeritransObject ver = new VeritransObject(context,		//Type: Context, it is your activity context
+										  order_id,		//Type: String, it is your order id
+										  client_key,	//Type: String, it is your client_key obtained from MAP
+										  server_key);	//Type: String, it is your server_key obtained from MAP encoded Base64
+
+//State the payment type and its details
+ver.setCreditCard(ccNumber, 						//Type: String, credit card number
+				  expMonth,							//Type: String, credit card expiry month
+				  expYear, 							//Type: String, credit card expiry year
+				  cvvNumber,    					//Type: String, credit card 3 digits cvv number
+				  bank,								//Type: String, credit card issuer bank
+				  VeritransObject.SECURE_FALSE,		//Type: String, only "true" or "false". True means transaction will be processed using 3DSecure
+				  VeritransObject.SAVE_TOKEN_TRUE);	//Type: String, only "true" or "false". True means merchant will remember customer's credit card
+
+//State customer's billing and shipping information. All of them are String, of course. It is only needed by credit card transaction.
+ver.setBillingInfo(billingFirstName, billingLastName, billingAddress, billingCity, billingPostalCode, billingPhone, billingCountry);
+ver.setShippingInfo(shippingFirstName, shippingLastName, shippingAddress, shippingCity, shippingPostalCode, shippingPhone, shippingCountry);
+
+//State general customer details. All payment types need it.
+ver.setCustomerDetails(firstName, lastName, email, phone);
+
+//Pay all things in shopping cart
+ver.pay(cart,			//Type: ArrayList<ShoppingCartItem>, it is the item customer buy
+		grossAmount);	//Type: String, it is the total amount of money your customer spend for cart.
+-------------------------------------------------------------------------------------------
+Other than credit card, you can charge transaction using several other ways.
+Now change your Activity declaration so it implements VeritransObject.ResponseListener and override the onResponseRecieved method. So in my case, it would look like this.
+-------------------------------------------------------------------------------------------
+public class ActivityHome extends Activity implements VeritransObject.ResponseListener{
+	...
+	@Override
+	public void onResponseRecieved(String response) {
+		try {
+			Toast.makeText(this, response, Toast.LENGTH_LONG).show();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+	}
+}
+-------------------------------------------------------------------------------------------
+
+From here on, basically you have charged the transaction your customer made. So if charging transaction is what you only need, you can close this document and continue your business with the response in hand. If you want to know alternative ways to charge transaction, you can continue to read the section below. Otherwise, you can read jump to *40RESP* for handling response. Do not forget your caret (^).

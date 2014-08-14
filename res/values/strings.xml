@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">VT Dummy Store</string>
+    <string name="spinner_prompt">Select your credit card</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="drawer_open">Slider Menu Opened</string>
@@ -65,5 +66,15 @@
     <string name="title_activity_fragment_vtweb">FragmentVTWeb</string>
     <string name="title_activity_fragment_vtdirect">FragmentVTDirect</string>
     <string name="title_activity_fragment_credit_card">FragmentCreditCard</string>
+    <string name="title_activity_fragment_order_summary">FragmentOrderSummary</string>
+    <string name="title_activity_fragment_cimb_clicks">FragmentCimbClicks</string>
+    <string name="title_activity_fragment_testing">FragmentTesting</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_fragment_mandiri_clickpay">FragmentMandiriClickpay</string>
+    <string name="title_activity_fragment_tcash">FragmentTCash</string>
+    <string name="title_activity_fragment_xl_tunai">FragmentXlTunai</string>
+    <string name="title_activity_fragment_permata">FragmentPermata</string>
+    <string name="title_activity_fragment_bii">FragmentBii</string>
+    <string name="title_activity_fragment_two_clicks">FragmentTwoClicks</string>
 
 </resources>

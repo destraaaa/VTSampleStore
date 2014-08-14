@@ -62,8 +62,7 @@
         </activity>
         <activity
             android:name="com.destra.vtdummy.FragmentVTWeb"
-            android:label="@string/title_activity_fragment_vtweb"
-            android:noHistory="true" >
+            android:label="@string/title_activity_fragment_vtweb">
         </activity>
         <activity
             android:name="com.destra.vtdummy.FragmentVTDirect"
@@ -72,6 +71,46 @@
         <activity
             android:name="com.destra.vtdummy.FragmentCreditCard"
             android:label="@string/title_activity_fragment_credit_card" >
+        </activity>
+        <activity
+            android:name="com.destra.vtdummy.FragmentOrderSummary"
+            android:label="@string/title_activity_fragment_order_summary" >
+        </activity>
+        <activity
+            android:name="com.destra.vtdummy.FragmentCimbClicks"
+            android:label="@string/title_activity_fragment_cimb_clicks" >
+        </activity>
+        <activity
+            android:name="com.destra.vtdummy.FragmentTesting"
+            android:label="@string/title_activity_fragment_testing" >
+        </activity>
+        <activity
+            android:name="com.destra.vtdummy.MainActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name="com.destra.vtdummy.FragmentMandiriClickpay"
+            android:label="@string/title_activity_fragment_mandiri_clickpay" >
+        </activity>
+        <activity
+            android:name="com.destra.vtdummy.FragmentTCash"
+            android:label="@string/title_activity_fragment_tcash" >
+        </activity>
+        <activity
+            android:name="com.destra.vtdummy.FragmentXlTunai"
+            android:label="@string/title_activity_fragment_xl_tunai" >
+        </activity>
+        <activity
+            android:name="com.destra.vtdummy.FragmentPermata"
+            android:label="@string/title_activity_fragment_permata" >
+        </activity>
+        <activity
+            android:name="com.destra.vtdummy.FragmentBii"
+            android:label="@string/title_activity_fragment_bii" >
+        </activity>
+        <activity
+            android:name="com.destra.vtdummy.FragmentTwoClicks"
+            android:label="@string/title_activity_fragment_two_clicks" >
         </activity>
     </application>
 

@@ -31,6 +31,7 @@ public class FragmentHome extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		View v = inflater.inflate(R.layout.fragment_item_shop, container, false);
+		((ActivityHome)getActivity()).fragmentTag = "None";
 		l = (ListView) v.findViewById(R.id.list_nearby);
 		gross = (TextView) v.findViewById(R.id.gross_amount);
 		checkout = (Button) v.findViewById(R.id.checkout);
@@ -47,9 +48,9 @@ public class FragmentHome extends Fragment {
 		// alongside other operation.
 		ArrayList<Item> items = new ArrayList<Item>();
 		ItemAdapter adapter;
-		items.add(new Item(1, R.drawable.motor1, "Motor 1", 500000));
-		items.add(new Item(2, R.drawable.motor2, "Motor 2", 300000));
-		items.add(new Item(3, R.drawable.motor3, "Motor 3", 200000));
+		items.add(new Item(1, R.drawable.motor1, "Ducati Corse", 500000));
+		items.add(new Item(2, R.drawable.motor2, "Nicky Hayden", 300000));
+		items.add(new Item(3, R.drawable.motor3, "Mach I", 200000));
 		if (((ActivityHome)getActivity()).getCart().size() != 0){
 			if((((ActivityHome)getActivity()).fragmentTag.equals("Checkout"))||(((ActivityHome)getActivity()).fragmentTag.equals("backToMerchant"))){
 				gross.setText(FragmentProduct.gross.getText());
